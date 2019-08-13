@@ -1,0 +1,2 @@
+# MiniSuper
+aplicacion de inventario 
