@@ -6,13 +6,15 @@ using System.Web;
 
 namespace MiniMarket.Models
 {
-    public class Category
+    public class User
     {
         public int Id { get; set; }
         [Required]
-        public string TipoCategoria { get; set; }
+        public string NameUser { get; set; }
+        [Required]
+        public string Password { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
-    
+        public virtual ICollection<NoteEntry> NoteEntries { get; set; }
     }
+
 }

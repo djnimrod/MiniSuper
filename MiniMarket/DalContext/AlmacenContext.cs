@@ -15,5 +15,11 @@ namespace MiniMarket.DalContext
         public DbSet<Provider> Providers { set; get; }
         public DbSet<Inventory> Inventories { set; get; }
         public DbSet<Product> Products { set; get; }
+
+        public System.Data.Entity.DbSet<MiniMarket.Models.NoteEntry> NoteEntries { get; set; }
+
+        public System.Data.Entity.DbSet<MiniMarket.Models.NoteEntryProduct> NoteEntryProducts { get; set; }
+
+        public System.Data.Entity.DbSet<MiniMarket.Models.User> Users { get; set; }
     }
 }

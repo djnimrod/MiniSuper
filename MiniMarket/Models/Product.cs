@@ -33,6 +33,8 @@ namespace MiniMarket.Models
 
         public virtual ICollection<Inventory> Inventories { get; set; }
 
+        // ** // 
+        public virtual ICollection<NoteEntryProduct> NoteEntryProducts { get; set; }
 
     }
 }

@@ -151,9 +151,12 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
+    <Compile Include="Controllers\NoteEntriesController.cs" />
+    <Compile Include="Controllers\NoteEntryProductsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\UnitsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DalContext\AlmacenContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,12 +169,27 @@
     <Compile Include="Migrations\201908140012431_cambioFotoRequired.Designer.cs">
       <DependentUpon>201908140012431_cambioFotoRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908140135269_AddNoteEntry.cs" />
+    <Compile Include="Migrations\201908140135269_AddNoteEntry.Designer.cs">
+      <DependentUpon>201908140135269_AddNoteEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908140206347_CambioRelacionNotaEntrada.cs" />
+    <Compile Include="Migrations\201908140206347_CambioRelacionNotaEntrada.Designer.cs">
+      <DependentUpon>201908140206347_CambioRelacionNotaEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908140250303_addEncargado.cs" />
+    <Compile Include="Migrations\201908140250303_addEncargado.Designer.cs">
+      <DependentUpon>201908140250303_addEncargado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\NoteEntry.cs" />
+    <Compile Include="Models\NoteEntryProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +254,21 @@
     <Content Include="Views\Inventories\Details.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\NoteEntries\Create.cshtml" />
+    <Content Include="Views\NoteEntries\Delete.cshtml" />
+    <Content Include="Views\NoteEntries\Details.cshtml" />
+    <Content Include="Views\NoteEntries\Edit.cshtml" />
+    <Content Include="Views\NoteEntries\Index.cshtml" />
+    <Content Include="Views\NoteEntryProducts\Create.cshtml" />
+    <Content Include="Views\NoteEntryProducts\Delete.cshtml" />
+    <Content Include="Views\NoteEntryProducts\Details.cshtml" />
+    <Content Include="Views\NoteEntryProducts\Edit.cshtml" />
+    <Content Include="Views\NoteEntryProducts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +293,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908140012431_cambioFotoRequired.resx">
       <DependentUpon>201908140012431_cambioFotoRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140135269_AddNoteEntry.resx">
+      <DependentUpon>201908140135269_AddNoteEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140206347_CambioRelacionNotaEntrada.resx">
+      <DependentUpon>201908140206347_CambioRelacionNotaEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140250303_addEncargado.resx">
+      <DependentUpon>201908140250303_addEncargado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
