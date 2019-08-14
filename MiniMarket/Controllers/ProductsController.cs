@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -51,8 +52,20 @@ namespace MiniMarket.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
         {
+            if (imagenProducto != null && imagenProducto.ContentLength > 0)
+            {
+                byte[] imagenData = new byte[imagenProducto.ContentLength];
+                string dir = string.Empty;
+                string path = Path.Combine(Server.MapPath("/Images/Photo/"),
+                                            Path.GetFileName(imagenProducto.FileName));
+
+                imagenProducto.SaveAs(path);
+                dir = "~/Images/Photo/" + imagenProducto.FileName;
+                product.Foto = dir;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
@@ -89,8 +102,19 @@ namespace MiniMarket.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
         {
+            if (imagenProducto != null && imagenProducto.ContentLength > 0)
+            {
+                byte[] imagenData = new byte[imagenProducto.ContentLength];
+                string dir = string.Empty;
+                string path = Path.Combine(Server.MapPath("/Images/Photo/"),
+                                            Path.GetFileName(imagenProducto.FileName));
+
+                imagenProducto.SaveAs(path);
+                dir = "~/Images/Photo/" + imagenProducto.FileName;
+                product.Foto = dir;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;

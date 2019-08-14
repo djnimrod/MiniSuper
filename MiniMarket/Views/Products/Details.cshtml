@@ -58,9 +58,9 @@
             @Html.DisplayFor(model => model.FechaVencimiento)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
+        <dd>
+            <img height="50" width="50" src=@Url.Content(Model.Foto) />
+        </dd>
 
         <dd>
             @Html.DisplayFor(model => model.Foto)

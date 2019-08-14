@@ -162,6 +162,10 @@
     <Compile Include="Migrations\201908132218329_PrimerMigrate.Designer.cs">
       <DependentUpon>201908132218329_PrimerMigrate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908140012431_cambioFotoRequired.cs" />
+    <Compile Include="Migrations\201908140012431_cambioFotoRequired.Designer.cs">
+      <DependentUpon>201908140012431_cambioFotoRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Inventory.cs" />
@@ -235,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -252,6 +257,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908132218329_PrimerMigrate.resx">
       <DependentUpon>201908132218329_PrimerMigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140012431_cambioFotoRequired.resx">
+      <DependentUpon>201908140012431_cambioFotoRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

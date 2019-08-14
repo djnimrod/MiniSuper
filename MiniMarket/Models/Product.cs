@@ -8,7 +8,7 @@ namespace MiniMarket.Models
 {
     public class Product
     {
-
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
@@ -16,7 +16,7 @@ namespace MiniMarket.Models
         public int Precio { get; set; }
         [Required]
         public DateTime FechaVencimiento { get; set; }
-        [Required]
+
         public string Foto { get; set; }
 
 
