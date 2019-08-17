@@ -56,7 +56,7 @@ namespace MiniMarket.Controllers
         {
             if (imagenProducto != null && imagenProducto.ContentLength > 0)
             {
-                byte[] imagenData = new byte[imagenProducto.ContentLength];
+               // byte[] imagenData = new byte[imagenProducto.ContentLength];
                 string dir = string.Empty;
                 string path = Path.Combine(Server.MapPath("/Images/Photo/"),
                                             Path.GetFileName(imagenProducto.FileName));

@@ -26,6 +26,13 @@ namespace MiniMarket
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // nuevos js
+            bundles.Add(new ScriptBundle("~/bundles/jqueryUi").Include(
+                    "~/Scripts/jquery-ui-{version}.js"));
+            // nuevos css
+            bundles.Add(new StyleBundle("~/Content/jqueryUi").Include(
+                      "~/Content/themes/base/jquery-ui.css"));
         }
     }
 }

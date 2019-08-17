@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MiniMarket.Models.NoteEntry>
+﻿@model IEnumerable<MiniMarket.Models.NoteExit>
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Observacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaEntrada)
+            @Html.DisplayNameFor(model => model.FechaSalida)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Encargado)
@@ -35,16 +35,15 @@
             @Html.DisplayFor(modelItem => item.Observacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FechaEntrada)
+            @Html.DisplayFor(modelItem => item.FechaSalida)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Encargado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-            @Html.ActionLink("NotaEntrada-Productos", "Index", "NoteEntryProducts")
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

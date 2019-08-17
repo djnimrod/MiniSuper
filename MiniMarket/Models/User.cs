@@ -15,6 +15,9 @@ namespace MiniMarket.Models
         public string Password { get; set; }
 
         public virtual ICollection<NoteEntry> NoteEntries { get; set; }
+
+        public virtual ICollection<NoteExit> NoteExits { get; set; }
+
     }
 
 }
