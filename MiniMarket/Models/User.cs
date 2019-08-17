@@ -10,8 +10,10 @@ namespace MiniMarket.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Nombre de Usuario")]
         public string NameUser { get; set; }
         [Required]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
         public virtual ICollection<NoteEntry> NoteEntries { get; set; }

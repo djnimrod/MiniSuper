@@ -11,12 +11,14 @@ namespace MiniMarket.Models
     {
 
         public int Id { get; set; }
+        [Display(Name = "Nro Nota Entrada")]
         public int NoteEntryID { get; set; }
         public virtual NoteEntry NoteEntry { get; set; }
-
+        [Display(Name = "Nombre Producto")]
         public int ProductID { get; set; }
         public virtual Product Product { get; set; }
         [Required]
+        [Display(Name = "Cantidad")]
         public int Cantidad { get; set; }
 
     }
