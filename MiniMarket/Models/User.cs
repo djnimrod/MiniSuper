@@ -14,6 +14,7 @@ namespace MiniMarket.Models
         public string NameUser { get; set; }
         [Required]
         [Display(Name = "Contraseña")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         public virtual ICollection<NoteEntry> NoteEntries { get; set; }

@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\NoteEntriesController.cs" />
@@ -190,6 +191,10 @@
     <Compile Include="Migrations\201908140338351_FixBug.cs" />
     <Compile Include="Migrations\201908140338351_FixBug.Designer.cs">
       <DependentUpon>201908140338351_FixBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908181852017_CrearComentario.cs" />
+    <Compile Include="Migrations\201908181852017_CrearComentario.Designer.cs">
+      <DependentUpon>201908181852017_CrearComentario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -337,6 +342,11 @@
     <Content Include="Views\NoteExitProducts\Details.cshtml" />
     <Content Include="Views\NoteExitProducts\Edit.cshtml" />
     <Content Include="Views\NoteExitProducts\Index.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -375,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908140338351_FixBug.resx">
       <DependentUpon>201908140338351_FixBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908181852017_CrearComentario.resx">
+      <DependentUpon>201908181852017_CrearComentario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
