@@ -10,6 +10,7 @@ namespace MiniMarket.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Nombre de Unidad")]
         public string Nombre { get; set; }
 
 
