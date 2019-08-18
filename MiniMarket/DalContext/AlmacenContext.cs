@@ -25,5 +25,6 @@ namespace MiniMarket.DalContext
         public System.Data.Entity.DbSet<MiniMarket.Models.NoteExit> NoteExits { get; set; }
 
         public System.Data.Entity.DbSet<MiniMarket.Models.NoteExitProduct> NoteExitProducts { get; set; }
+        public DbSet<Comment> Comments { set; get; }
     }
 }

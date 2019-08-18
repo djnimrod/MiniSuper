@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MiniMarket.Models.Product>
 @{
 
-                ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
@@ -11,16 +11,22 @@
 </div>
 
 <div class="row">
-    <div class="container">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-4">
-                <img class="anchoImagen" src=@Url.Content(item.Foto) />
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img class=" img-responsive anchoImagen" src=@Url.Content(item.Foto) />
+                <div class="caption">
+                    <h3>@item.Nombre</h3>
+                    <p>@item.FechaVencimiento</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
             </div>
-        }
-
+        </div>
+    }
     </div>
-</div>
+
+
 <div class="row">
     <div class="container">
         <div class="col-md-6">
@@ -31,7 +37,7 @@
             </ul>
         </div>
         <div class="col-md-6">
-            <img class="anchoImagen" src="~/Images/Photo/step.jpg" alt="Alternate Text" />
+            <img class="img-responsive anchoImagen" src="~/Images/Photo/step.jpg" alt="Alternate Text" />
         </div>
     </div>
 </div>
