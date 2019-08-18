@@ -193,6 +193,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\NoteEntry.cs" />
     <Compile Include="Models\NoteEntryProduct.cs" />
