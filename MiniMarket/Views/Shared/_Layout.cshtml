@@ -27,9 +27,9 @@
                     <li class="dropdown submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos</a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Productos", "Index", "Products")</li>        
-                            <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>        
-                            <li>@Html.ActionLink("Unidades", "Index", "Units")</li>        
+                            <li>@Html.ActionLink("Productos", "Index", "Products")</li>
+                            <li>@Html.ActionLink("Categorias", "Index", "Categories")</li>
+                            <li>@Html.ActionLink("Unidades", "Index", "Units")</li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("Inventario", "Index", "Inventories")</li>
@@ -60,10 +60,10 @@
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
         </footer>
     </div>
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
 </body>
 </html>
