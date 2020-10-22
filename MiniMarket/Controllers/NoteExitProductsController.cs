@@ -54,6 +54,9 @@ namespace MiniMarket.Controllers
         {
             if (ModelState.IsValid)
             {
+                // actualizar aqui
+                ActualizarInventario(noteExitProduct.ProductID, noteExitProduct.Cantidad);
+                //
                 db.NoteExitProducts.Add(noteExitProduct);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -132,6 +135,20 @@ namespace MiniMarket.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        //
+        public void ActualizarInventario(int idProduct, int cantidad)
+        {
+
+            var inventory = (from a in db.Inventories
+                             where a.ProductID == idProduct
+                             select a).FirstOrDefault();
+
+            inventory.Cantidad = inventory.Cantidad - cantidad;
+            db.Entry(inventory).State = EntityState.Modified;
+            db.SaveChanges();
+
+
         }
     }
 }

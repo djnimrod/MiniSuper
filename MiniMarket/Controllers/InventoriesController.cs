@@ -129,5 +129,14 @@ namespace MiniMarket.Controllers
             }
             base.Dispose(disposing);
         }
+        public int CantidadByProducto( int idProducto) {
+             return db.Inventories.FirstOrDefault(x => x.ProductID == idProducto).Cantidad;
+        }
+
+        //public Boolean hayStockMin() {
+        //    return db.Inventories.FirstOrDefault(x => x.Cantidad > x.Stock);
+        //}
+        
+
     }
 }

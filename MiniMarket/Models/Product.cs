@@ -24,6 +24,8 @@ namespace MiniMarket.Models
         [Display(Name = "Imagen del Producto")]
         public string Foto { get; set; }
 
+        [Display(Name ="Imagen Qr del Producto")]
+        public string ImagenQr { set; get; }
 
         // relations
         [Display(Name = "Nombre de Categoria")]

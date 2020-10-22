@@ -14,13 +14,13 @@ namespace MiniMarket.Controllers
         public ActionResult Index()
         {
             //ViewBag.Inventario = db.Inventories.Where(b => b.ProductID =  b => b.Product.Id)
-            var products = (from p in db.Products
-                           from x in db.Inventories
-                           where p.Id == x.ProductID
-                           orderby x.Cantidad
-                           select p).Take(3);
+            //var products = (from p in db.Products
+            //               from x in db.Inventories
+            //               where p.Id == x.ProductID
+            //               orderby x.Cantidad
+            //               select p).Take(3);
 
-            return View(products.ToList().AsEnumerable());
+            return View(ObtenerCincoProductosMasAntiguos());
         }
 
         public ActionResult About()
@@ -36,5 +36,24 @@ namespace MiniMarket.Controllers
 
             return View();
         }
+
+        public IEnumerable<Product> ObtenerCincoPrimeros() {
+            var products = (from p in db.Products
+                            from x in db.Inventories
+                            where p.Id == x.ProductID
+                            orderby x.Cantidad
+                            select p).Take(3);
+            return products.ToList().AsEnumerable();
+        }
+
+        public IEnumerable<Product> ObtenerCincoProductosMasAntiguos() {
+            
+            var products = ( from p in db.Products
+                                  orderby p.FechaVencimiento
+                                  select p).Take(5);
+            return products.ToList().AsEnumerable();
+        }
+
+        
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -9,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using MiniMarket.DalContext;
 using MiniMarket.Models;
+using QRCoder;
 
 namespace MiniMarket.Controllers
 {
@@ -52,11 +55,12 @@ namespace MiniMarket.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
+        public ActionResult Create([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,ImagenQr,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
         {
+            // guardar Foto del Producto
             if (imagenProducto != null && imagenProducto.ContentLength > 0)
             {
-               // byte[] imagenData = new byte[imagenProducto.ContentLength];
+
                 string dir = string.Empty;
                 string path = Path.Combine(Server.MapPath("/Images/Photo/"),
                                             Path.GetFileName(imagenProducto.FileName));
@@ -65,7 +69,23 @@ namespace MiniMarket.Controllers
                 dir = "~/Images/Photo/" + imagenProducto.FileName;
                 product.Foto = dir;
             }
+            // guardar Qr con info del Producto
 
+            string fileName = product.Nombre + db.Categories.Find(product.CategoryID).TipoCategoria+".jpg";
+
+
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(fileName, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            var folder = "~/Images/Qrs/";
+            var paths = System.Web.HttpContext.Current.Server.MapPath(folder);
+            qrCodeImage.Save(paths + fileName, ImageFormat.Jpeg);
+
+            //ViewBag.QrFile = folder + fileName;
+
+            product.ImagenQr = folder + fileName;
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
@@ -102,7 +122,7 @@ namespace MiniMarket.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Precio,FechaVencimiento,Foto,ImagenQr,CategoryID,UnitID,ProviderID")] Product product, HttpPostedFileBase imagenProducto)
         {
             if (imagenProducto != null && imagenProducto.ContentLength > 0)
             {
@@ -115,6 +135,21 @@ namespace MiniMarket.Controllers
                 dir = "~/Images/Photo/" + imagenProducto.FileName;
                 product.Foto = dir;
             }
+            // guardar Qr con info del Producto
+
+            string fileName = product.Nombre +product.CategoryID + ".jpg";
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(fileName, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            var folder = "~/Images/Qrs/";
+            var paths = System.Web.HttpContext.Current.Server.MapPath(folder);
+            qrCodeImage.Save(paths + fileName, ImageFormat.Jpeg);
+
+            //ViewBag.QrFile = folder + fileName;
+
+            product.ImagenQr = folder + fileName;
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
@@ -161,5 +196,24 @@ namespace MiniMarket.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // metodos
+
+        public int Sum(int val1, int val2)
+        {
+            return val1 + val2;
+        }
+
+        // buscar un producto
+        public Product BuscarProductoById(int id) {
+           return db.Products.Find(id);
+        }
+
+
+        public Product BuscarProductoByNombre(string nombre) {
+
+            return db.Products.FirstOrDefault(x => x.Nombre == nombre);
+        }
+
     }
 }

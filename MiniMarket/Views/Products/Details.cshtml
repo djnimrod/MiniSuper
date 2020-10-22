@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 
-<div>
+<div id="@Model.Id" class="text-center">
     <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -58,12 +58,20 @@
             @Html.DisplayFor(model => model.FechaVencimiento)
         </dd>
 
-        <dd>
-            <img height="50" width="50" src=@Url.Content(Model.Foto) />
-        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Foto)
+            <img height="150" width="150" src=@Url.Content(Model.Foto) />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenQr)
+        </dt>
+
+        <dd>
+            <img height="150" width="150" src=@Url.Content(Model.ImagenQr) />
         </dd>
 
     </dl>
